@@ -1,13 +1,14 @@
 from typing import Any, Dict
 
 import streamlit as st
-from langchain.document_loaders import DirectoryLoader
-from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain_community.document_loaders import DirectoryLoader
+from langchain_community.embeddings import OpenAIEmbeddings 
 from langchain.text_splitter import CharacterTextSplitter
-from langchain.vectorstores import SupabaseVectorStore
+from langchain_community.vectorstores import SupabaseVectorStore 
 from pydantic import BaseModel
 from supabase.client import Client, create_client
-
+from langchain_openai import OpenAIEmbeddings
+from langchain_core import beta
 
 class Secrets(BaseModel):
     SUPABASE_URL: str

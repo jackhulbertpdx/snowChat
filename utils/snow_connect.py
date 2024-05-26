@@ -30,7 +30,7 @@ class SnowflakeConnection:
     @staticmethod
     def _get_connection_parameters_from_env() -> Dict[str, Any]:
         connection_parameters = {
-            "account": st.secrets["ACCOUNT"],
+            "account": st.secrets["gh34559.us-east-2.aws"],
             "user": st.secrets["USER_NAME"],
             "password": st.secrets["PASSWORD"],
             "warehouse": st.secrets["WAREHOUSE"],
