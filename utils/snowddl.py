@@ -16,6 +16,7 @@ class Snowddl:
     def load_ddls():
         ddl_files = {
             "recent_sets": "sql/recent_sets.sql",
+            "reviews": "sql/reviews.sql"
         }
 
         ddl_dict = {}

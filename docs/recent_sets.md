@@ -1,8 +1,9 @@
-**Table 1: PHISH_DEV.DBT_JHULBERT.RECENT_SETS** (Stores all data about  concert sets played by the American Jam Band "Phish" and includes data about the locations of the shows, the songs, and metadata about the songs.)
+**Table 1: PHISH_DEV.DBT_JHULBERT.RECENT_SETS** (Stores all data about  concert sets played by the American Jam Band "Phish" and includes data about the locations of the shows, the songs, and metadata about the songs.) 
 
 This table contains aggregate information of the shows played by Phish.
 
-- SET_ID VARCHAR(16777216) - Unique identifier for a set played by the band Phish. Set is snyonymous with a concert. If concert, show, or festival is used, it would refer to a set.
+- SET_ID VARCHAR(16777216) - Unique identifier for a set played by the band Phish. Set is snyonymous with a concert. If set is used, it would refer to a set. One show can have many sets. 
+- SHOW_ID VARCHAR(16777216) - Unique identifier for a show played by the band Phish. Show is snyonymous with a concert. If concert, show, or festival is used, it would refer to a Show. One show can have many sets.
 - SET_NAME VARCHAR(16777216) - The name of the set, colloquially. Also known as the show name or title. 
 - TOUR_NAME VARCHAR(16777216) - The name of the tour. One tour can have many sets or shows. Often times tours may be referred by their year or location.
 - VENUE VARCHAR(16777216) - The venue where the set or show was played. This may also be abbreviated, as some venues like Madison Square Garden in New York may be abbreviated as MSG. If there is an acronym, please provide the full name and the acronym.
@@ -24,17 +25,11 @@ This table contains aggregate information of the shows played by Phish.
 - ENERGY FLOAT - Spotify's energy measure for songs is a value between 0.0 and 1.0 that represents the song's perceived intensity and activity. A higher energy value indicates a more energetic song, which often feels fast, loud, and noisy. You can use the Sort Your Music tool to sort your Spotify playlists by energy, along with other song attributes like tempo, danceability, and loudness.
 - VALENCE FLOAT - Valence, on the other hand, describes the musical positivity conveyed by a piece of music. Songs with high valence sound more positive (e.g. happy, cheerful), while pieces with low valence sound more negative (e.g. sad, angry). In order to determine the mood of the human, these factors need to be considered.
 - LIVENESS FLOAT - Liveness. Detects the presence of an audience in the recording. Higher liveness values represent an increased probability that the track was performed live. A value above 0.8 provides strong likelihood that the track is live.
-
 - LOUDNESS FLOAT - Spotify uses Loudness Units Relative to Full Scale (LUFS) to measure the loudness of songs and normalize their volume to create a better listening experience for users. LUFS is a standardized measurement that considers both human perception and electrical signal intensity.
 - ACOUSTICNESS FLOAT - According to Spotify, accousticness corresponds to a confidence measure from 0.0 to 1.0 of whether the track is acoustic. 1.0 represents high confidence that the track is acoustic. The digitization of music, the emergence of online streaming platforms and mobile apps have dramatically changed the ways we consume music.
-
 - DANCEABILITY FLOAT - Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. A value of 0.0 is least danceable and 1.0 is most danceable. The duration of the track in milliseconds.
-
 - TIME_SIGNATURE FLOAT - The time signature (meter) is a notational convention to specify how many beats are in each bar (or measure). The time signature ranges from 3 to 7 indicating time signatures of "3/4", to "7/4". The confidence, from 0.0 to 1.0, of the reliability of the time_signature . The key the track is in.
-
 - INSTRUMENTALNESS FLOAT - The closer the instrumentalness value is to 1.0, the greater likelihood the track contains no vocal content. Values above 0.5 are intended to represent instrumental tracks, but confidence is higher as the value approaches 1.0. The key the track is in.
-
 - JAM_SCORE FLOAT - If time_signature >= 4 then a 120% multiplier is added to the score, then multiplied by tempo, energy, valence, and danceability. The weighted average of this is taken to get a jam score, also known as 'grooviness' or a groove score.
-
 - AVERAGE_RATING FLOAT - The average rating of critic reviews from the website phish.net for a set or show
 - MEDIAN_RATING NUMBER(12,3) -  The median rating of critic reviews from the website phish.net for a set or show

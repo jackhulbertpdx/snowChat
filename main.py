@@ -26,15 +26,15 @@ gradient_text_html = """
     font-size: 3em;
 }
 </style>
-<div class="gradient-text">snowChat</div>
+<div class="gradient-text">phishBot</div>
 """
 
 st.markdown(gradient_text_html, unsafe_allow_html=True)
 
-st.caption("Talk your way through data")
+st.caption("Talk your way through the history of Phish!")
 model = st.radio(
     "",
-    options=["Claude-3 Haiku", "Mixtral 8x7B", "Llama 3-70B", "GPT-3.5"],
+    options=["GPT-3.5"],
     index=0,
     horizontal=True,
 )
@@ -46,10 +46,6 @@ if "toast_shown" not in st.session_state:
 if "rate-limit" not in st.session_state:
     st.session_state["rate-limit"] = False
 
-# Show the toast only if it hasn't been shown before
-if not st.session_state["toast_shown"]:
-    st.toast("The snowflake data retrieval is disabled for now.", icon="👋")
-    st.session_state["toast_shown"] = True
 
 # Show a warning if the model is rate-limited
 if st.session_state["rate-limit"]:
@@ -60,10 +56,9 @@ if st.session_state["model"] == "Mixtral 8x7B":
     st.warning("This is highly rate-limited. Please use it sparingly", icon="⚠️")
 
 INITIAL_MESSAGE = [
-    {"role": "user", "content": "Hi!"},
     {
         "role": "assistant",
-        "content": "Hey there, I'm Chatty McQueryFace, your SQL-speaking sidekick, ready to chat up Snowflake and fetch answers faster than a snowball fight in summer! ❄️🔍",
+        "content": "Hey there, fellow Phan! 🌟 Welcome to our groovy corner of the web, where the music never stops and the vibes are always high. Whether you're here to chat about the latest tour, dive deep into some epic jams, or just hang out and bask in the glow of the groove, you've come to the right place. Let's make some magic happen, one conversation at a time. 🎶 So, what can I do for you today? Let's get this show on the road! 🚀✨",
     },
 ]
 
@@ -88,10 +83,7 @@ if st.sidebar.button("Reset Chat"):
     st.session_state["messages"] = INITIAL_MESSAGE
     st.session_state["history"] = []
 
-st.sidebar.markdown(
-    "**Note:** <span style='color:red'>The snowflake data retrieval is disabled for now.</span>",
-    unsafe_allow_html=True,
-)
+
 
 st.write(styles_content, unsafe_allow_html=True)
 
@@ -188,8 +180,8 @@ if (
     st.session_state["rate-limit"] = True
 
     if get_sql(result):
-         conn = SnowflakeConnection().get_session()
-         df = execute_sql(get_sql(result), conn)
-         if df is not None:
-             callback_handler.display_dataframe(df)
-             append_message(df, "data", True)
+        conn = SnowflakeConnection().get_session()
+        df = execute_sql(get_sql(result), conn)
+        if df is not None:
+            callback_handler.display_dataframe(df)
+            append_message(df, "data", True)

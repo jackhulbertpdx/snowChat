@@ -13,8 +13,8 @@
     }
     h1, h2 {
     font-weight: bold;
-    background: -webkit-linear-gradient(left, red, orange);
-    background: linear-gradient(to right, red, orange);
+    background: -webkit-linear-gradient(left, blue, green);
+    background: linear-gradient(to right, blue, green);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline;

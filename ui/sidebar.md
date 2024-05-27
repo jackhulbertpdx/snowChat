@@ -1,6 +1,5 @@
-# snowChat
+# phishBot
 
-PhishFood
 ## Features
 
 
